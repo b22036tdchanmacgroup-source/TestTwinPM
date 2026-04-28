@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT MASTER Twin</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="twin_pm.css">
+</head>
+<body>
+
+<!-- LOADING -->
+<div class="loading-overlay hidden" id="loading">
+  <div class="loading-spinner">
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <p>Google Sheet 데이터를 불러오는 중...</p>
+  </div>
+</div>
+
+<!-- ===== MAIN SCREEN ===== -->
+<div id="main-screen">
+  <div class="main-bg">
+    <div class="main-bg-left"></div>
+    <div class="main-bg-right"></div>
+  </div>
+
+  <div class="main-header">
+    <span class="logo">PROJECT MASTER</span>
+    <span class="version">ver 0.5.260427</span>
+  </div>
+
+  <div class="main-content">
+    <div class="main-column main-column-left">
+      <div class="column-title">ENGINEERING S/W</div>
+      <div class="column-subtitle">Eng. S/W 개발</div>
+      <div class="sw-cards" id="sw-cards-left"></div>
+    </div>
+
+    <div class="main-column main-column-right">
+      <div class="column-title">GENERAL PLANNING & MANAGEMENT</div>
+      <div class="column-subtitle">총괄기획실</div>
+      <div class="sw-cards" id="sw-cards-right">
+        <div class="sw-card">
+          <div class="sw-card-left">
+            <div class="sw-card-icon"><svg viewBox="0 0 16 14"><path d="M14 2H8L6.6.6A1 1 0 0 0 5.9 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></div>
+            <span class="sw-card-name">인재성장 & 운영지원</span>
+          </div>
+          <span class="sw-card-manager">조태희 수석연구원</span>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-left">
+            <div class="sw-card-icon"><svg viewBox="0 0 16 14"><path d="M14 2H8L6.6.6A1 1 0 0 0 5.9 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></div>
+            <span class="sw-card-name">경영혁신 지원</span>
+          </div>
+          <span class="sw-card-manager">김우진A 수석연구원</span>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-left">
+            <div class="sw-card-icon"><svg viewBox="0 0 16 14"><path d="M14 2H8L6.6.6A1 1 0 0 0 5.9 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></div>
+            <span class="sw-card-name">디자인 랩(Design Lab)</span>
+          </div>
+          <span class="sw-card-manager">신혜영 수석연구원</span>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-left">
+            <div class="sw-card-icon"><svg viewBox="0 0 16 14"><path d="M14 2H8L6.6.6A1 1 0 0 0 5.9 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></div>
+            <span class="sw-card-name">기술공감 & 협력</span>
+          </div>
+          <span class="sw-card-manager">성형일 수석연구원</span>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-left">
+            <div class="sw-card-icon"><svg viewBox="0 0 16 14"><path d="M14 2H8L6.6.6A1 1 0 0 0 5.9 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></div>
+            <span class="sw-card-name">사업관리 & 운영</span>
+          </div>
+          <span class="sw-card-manager">권혁진 수석연구원</span>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-left">
+            <div class="sw-card-icon"><svg viewBox="0 0 16 14"><path d="M14 2H8L6.6.6A1 1 0 0 0 5.9 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></div>
+            <span class="sw-card-name">TDC 아카이브</span>
+          </div>
+          <span class="sw-card-manager">성형일 수석연구원</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="main-footer">Powered by BARON Consultant Co.,Ltd</div>
+</div>
+
+<!-- ===== DETAIL SCREEN ===== -->
+<div id="detail-screen">
+  <div class="detail-topbar">
+    <div class="topbar-brand" onclick="goHome()">
+      <div class="marquee-content">
+        <span style="color: #A5B9B6; font-weight: 400;">PM / TDC </span>
+        <span id="top-sw-name" style="color: #fff; font-weight: 700; margin-left: 5px;">WayZainer</span>
+      </div>
+    </div>
+
+
+    <div class="detail-tabs-wrapper" id="detail-tabs"></div>
+    <button class="tab-nav-btn" onclick="scrollTabs(-1)">‹</button>
+    <button class="tab-nav-btn" onclick="scrollTabs(1)">›</button>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:10px; padding-right:15px;">
+      <button class="validate-btn" onclick="runValidation()">품질 검증</button>
+      <div class="detail-connection-info">
+        <span id="data-status-badge" style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ff4444; margin-right:5px;"></span>
+        <span id="data-status-text">OFFLINE</span>
+        <span style="margin-left:10px;">접속 인원 <strong>15</strong>명</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="detail-body">
+    <div class="detail-sidebar" id="detail-sidebar">
+      <div class="sidebar-header" id="sidebar-sw-title"></div>
+      <div class="sidebar-content" id="sidebar-content-area"></div>
+      <div class="sidebar-footer">
+        <div class="footer-tab">썸네일</div>
+        <div class="footer-tab active">리스트</div>
+        <div class="footer-tab">지도 표시</div>
+      </div>
+    </div>
+
+    <div class="detail-main">
+      <div class="file-table-wrapper">
+        <table class="file-table">
+          <thead>
+            <tr>
+              <th>파일명 ↑</th>
+              <th>작성자</th>
+              <th>등록자</th>
+              <th>등록일자</th>
+              <th>용량</th>
+              <th>상태</th>
+              <th>메모</th>
+            </tr>
+          </thead>
+          <tbody id="file-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="detail-bottom-bar"></div>
+    </div>
+
+    <div class="detail-guide" id="detail-guide-panel">
+      <div class="guide-scroll-area">
+        <div class="guide-image-container" id="guide-default-view">
+          <img src="guide_panel.png" alt="Guide Panel">
+        </div>
+        <div id="guide-validation-view" style="display:none;">
+          <!-- Validation Report Content -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="detail-footer">
+    <div class="detail-footer-left">
+      <a>도움말</a> | <a>문의사항</a> | <a>패치노트</a> | <a>휴지통</a> |
+      <span class="storage-bar">
+        저장공간 <span id="storage-pct">54.43</span> %
+        <span class="storage-bar-visual"><span class="storage-bar-fill"></span></span>
+      </span> |
+      <span id="activity-log">활동로그 26-04-27 17:49:29 | 권정승 | 파일 다운로드 | /2. WayDraw & Shop/...</span>
+    </div>
+    <div class="detail-footer-right">Powered by BARON Consultant Co.,Ltd</div>
+  </div>
+</div>
+
+<script src="twin_pm.js"></script>
+</body>
+</html>
